@@ -44,9 +44,14 @@ syn0 = 2 * np.random.random((input_nodes,output_node))
 
 bias_o = np.random.randn()
 
+'''Learning rate & Iteration'''
+
+learning_rate = 0.1
+iteration = 100000
+
 '''Training loop'''
 
-for i in range(100000):
+for i in range(iteration):
 
     # Layers and Propagation
 
@@ -56,7 +61,10 @@ for i in range(100000):
     # Error and Back propagation
 
     l1_error = y - l1
-    l1_delta = l1_error * sigmoid(l1, deriv=True)
+    if (i % (iteration/10)) == 0:
+        print('Error: ' + str(np.mean(np.abs(l1_error * 100))) + ' % ')
+        
+    l1_delta = l1_error * sigmoid(l1, deriv=True) * learning_rate
 
     # Correction
 
