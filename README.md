@@ -1,2 +1,2 @@
-# Neural-Networks
-Simple Neural Networks  from scratch
+# Perceptron 
+Simple Neural Networks from scratch
